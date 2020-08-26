@@ -1,26 +1,34 @@
 import React from 'react';
 import logo from './logo.svg';
 import './App.css';
+import Register from './Register';
+import Home from './Home';
+import {
+ BrowserRouter as Router,
+ Switch,
+ Route,
+} from "react-router-dom";
+
+import { Button } from 'semantic-ui-react';
+import { Header } from 'semantic-ui-react';
+import { Form } from 'semantic-ui-react';
+import { Segment } from 'semantic-ui-react';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+    <Router>
+      <Switch>
+        <Route exact path='/'>
+          <Register/>
+        </Route>
+        <Route path='/home'>
+          <Home/>
+        </Route>
+       </Switch>
+    </Router>
+  
+      
+   );
 }
-
+ 
 export default App;
